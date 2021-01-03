@@ -1,3 +1,151 @@
+:root {
+  --ash: #5f6368;
+  --background: var(--black);
+  --black: #171c26;
+  --blue: #89c4ff;
+  --charcoal: #202124;
+  --concrete: #e8eaed;
+  --cyan: #bcfff9;
+  --green: #70e09b;
+  --magenta: #afafff;
+  --red: #ff7f7f;
+  --snow: #e8f0fe;
+  --text: var(--white);
+  --white: #ffffff;
+  --yellow: #ffdd99;
+  --dark-blue: #1a73e8;
+  --dark-gray: #565f72;
+  --light-gray: #acb7cc;
+}
+
+nav {
+  background-color: var(--black);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+}
+
+main {
+  background-color: var(--white);
+}
+
+article {
+  background-color: var(--white);
+}
+
+pre {
+  background-color: var(--concrete);
+}
+
+samp {
+  border-color: var(--background);
+}
+
+var {
+  color: var(--red);
+}
+
+kbd {
+  border: 1px solid var(--light-gray);
+}
+
+a {
+  color: var(--dark-blue);
+}
+
+nav a:any-link {
+  color: var(--white);
+}
+
+nav a:hover {
+  color: var(--blue);
+}
+
+thead {
+  border: 2px solid var(--concrete);
+}
+
+th {
+  border-bottom: 2px solid var(--concrete);
+}
+
+td {
+  border-top: 1px solid var(--concrete);
+}
+
+tr {
+  border-bottom: 1px solid var(--concrete);
+}
+
+table {
+  border-bottom: 1px var(--concrete);
+  color: var(--charcoal);
+}
+
+blockquote {
+  border-left: 4px solid var(--concrete);
+  color: var(--ash);
+}
+
+aside.info > p {
+  background-color: #cce5ff;
+  border-color: #b8daff;
+  color: #004085;
+}
+
+aside.danger > p {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+aside.warning > p {
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+  color: #856404;
+}
+
+aside.success > p {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+aside.tldr > p {
+  background-color: var(--concrete);
+  border-color: var(--ash);
+  color: var(--charcoal);
+}
+
+footer {
+  color: var(--ash);
+}
+footer p {
+  color: var(--black);
+}
+
+.toast {
+  background-color: var(--background);
+  color: var(--white);
+}
+
+.card {
+  background-color: var(--charcoal);
+  color: var(--white);
+  filter: opacity(0.8);
+  box-shadow: 1px 1px 12px -3px #000000;
+  transition: 0.3s;
+}
+
+.card:hover {
+  filter: opacity(100%);
+  color: white;
+}
+
+.chroma code {
+  background-color: inherit;
+  font-size: 16px;
+  line-height: 24px;
+}
+
 /* LineTableTD */
 .chroma .lntd {
   vertical-align: top;
@@ -325,8 +473,3 @@
 .chroma .gl {
   text-decoration: underline;
 }
-
-.chroma code {
-  background-color: inherit;
-}
-

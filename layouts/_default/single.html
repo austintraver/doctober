@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <article>
+  {{ .Content }}
+  </article>
+  <div class="toast"></div>
+{{ end }}
+
+{{ define "footer" }}
+<footer>
+  <p>Created
+    <time datetime="{{ .Date.Format "2006-01-02" }}">
+    {{ .Date.Format "Jan 2, 2006" }}
+    </time>
+  </p>
+  <p>Modified <time>{{ .Lastmod.Format "Jan 2, 2006" }}</time></p>
+</footer>
+{{ end }}

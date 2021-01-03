@@ -1,0 +1,11 @@
+<a class="logo" href="{{ .Site.Home.RelPermalink }}">
+  <img class="logo" alt="" src="/img/logo.svg">
+  <p>{{ .Site.Title }}</p>
+</a>
+<!-- The hamburger icon used to toggle the mobile navigation menu -->
+<img alt="" class="menu" src="/img/menu.svg">
+<ul class="menu hide">
+{{ range .Site.Home.Sections }}
+  <li><a href="{{ .Permalink }}">{{ .Name }}</a></li>
+{{ end }}
+</ul>

@@ -1,0 +1,18 @@
+{
+  "name": "doctober",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austintraver/doctober.git"
+  },
+  "author": "Austin Traver <austintraver@users.noreply.github.com> (https://github.com/austintraver)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/austintraver/doctober/issues"
+  },
+  "homepage": "https://github.com/austintraver/doctober#readme"
+}
