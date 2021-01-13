@@ -5,13 +5,13 @@ const toggleMenu = () => {
   }
   menuIcon.addEventListener('click', function() {
     let links = document.querySelector("nav > ul.menu");
-    if (links.classList.contains('rows')) {
-      links.classList.add('hide');
-      links.classList.remove('rows');
+    if (links.classList.contains('expanded')) {
+      links.classList.add('collapsed');
+      links.classList.remove('expanded');
     }
     else {
-      links.classList.remove('hide');
-      links.classList.add('rows')
+      links.classList.add('expanded')
+      links.classList.remove('collapsed');
     }
   })
 }

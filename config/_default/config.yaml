@@ -1,0 +1,60 @@
+pluralizeLinkTitles: false
+pygmentsUseClasses: true
+enableGitInfo: false
+enableInlineShortcodes: true
+watch: true
+newContentEditor: 'nvim'
+sitePagesMenu: 'main'
+relativeURLs: true
+languageCode: 'en-US'
+minify:
+  minifyOutput: false
+staticDir:
+  - 'static'
+frontmatter:
+  date:
+    - 'date'
+    - ':default'
+  lastmod:
+    - ':fileModTime'
+    - ':default'
+params:
+  mainSections:
+    - 'posts'
+disableKinds:
+  - 'taxonomy'
+  - 'term'
+  - 'RSS'
+markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    lineNos: false
+    lineNoStart: 1
+    tabWidth: 2
+    lineNumbersInTable: false
+    tabwidth: 4
+    noClasses: false
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: false
+    parser:
+      attribute: true
+      autoHeadingID: true
+      autoHeadingIDType: github-ascii
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+    ordered: false
+
