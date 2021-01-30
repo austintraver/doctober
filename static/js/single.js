@@ -25,9 +25,11 @@ const createAnchorLinks = async () => {
   headings.forEach((heading) => {
     let fragment = document.createElement('img')
     fragment.classList.add('fragment')
-    fragment.src = '/img/link.svg'
+    /*
     fragment.height = 24
     fragment.width = 24
+     */
+    fragment.src = '/img/link.svg'
     fragment.addEventListener('click', async () => {
       window.location.hash = `#${heading.id}`
       if (window.isSecureContext) {
@@ -39,7 +41,7 @@ const createAnchorLinks = async () => {
         }
       }
     })
-    heading.appendChild(fragment)
+    heading.prepend(fragment)
     /* When the user hovers over the link icon,
      make the icon appear fully opaque
      */
@@ -70,7 +72,7 @@ const createSnippetLinks = async () => {
     let img = document.createElement('img')
     img.classList.add('clone')
     img.src = '/img/clone.svg'
-    img.title = "Copy code to clipboard"
+    img.title = 'Copy code to clipboard'
     img.addEventListener('click', async () => {
       if (window.isSecureContext) {
         try {
@@ -104,16 +106,24 @@ const createSnippetLinks = async () => {
   }
 }
 
-document.addEventListener('DOMContentLoaded', createAnchorLinks)
-document.addEventListener('DOMContentLoaded', createSnippetLinks)
-
-
 const markExternalLinks = () => {
-  for (let link of document.querySelectorAll('article a')) {
-    if (link.hostname !== window.location.hostname) {
-      console.log(link)
+  for (let anchor of document.querySelectorAll('article a')) {
+    if (anchor.hostname === /.*\.(local|lan)/) {
+      continue
     }
+    if (anchor.hostname === /localhost|127\.0\.0\.1/) {
+      continue
+    }
+    if (anchor.hostname !== window.location.hostname) {
+        console.log(anchor)
+    }
+    let link = document.createElement('img')
+    link.src = "/img/external-link.svg"
+    link.classList.add('link')
+    anchor.appendChild(link)
   }
 }
 
+document.addEventListener('DOMContentLoaded', createAnchorLinks)
+document.addEventListener('DOMContentLoaded', createSnippetLinks)
 document.addEventListener('DOMContentLoaded', markExternalLinks)

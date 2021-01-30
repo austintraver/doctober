@@ -36,6 +36,16 @@ body {
   width: 100vw;
   counter-reset: page section subsection;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
 
 h1,
 h2,
@@ -248,18 +258,16 @@ article a:any-link:hover {
   text-decoration: underline;
 }
 
-
 code {
   border-radius: 4px;
-  font-size: inherit;
-  white-space: pre-wrap;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 pre {
   border-radius: 10px;
   text-align: left;
   position: relative;
+  overflow-x: scroll;
 }
 
 samp {
@@ -337,7 +345,6 @@ ul.pages {
 
 ul.pages li.page {
   font-size: 1.3rem;
-
 }
 
 ol {
@@ -437,6 +444,11 @@ table {
   max-width: 100%;
 }
 
+thead tr th {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
 th {
   font-weight: bold;
 }
@@ -494,8 +506,7 @@ hr {
 }
 
 img {
-  border-style: none;
-  vertical-align: middle;
+  box-sizing: border-box;
   max-width: 100%;
   height: auto;
 }
@@ -515,19 +526,52 @@ img.clone {
 img.fragment {
   cursor: pointer;
   user-select: none;
-  display: inline-block;
-  float: left;
   margin-right: 16px;
-  margin-top: 0.1em;
+  padding-top: 2px;
   opacity: 20%;
   transition-duration: 500ms;
-  width: 1em;
-  height: 1em;
+  max-width: 24px;
 }
 
 img.fragment:hover {
   opacity: 100%;
 }
+
+img.link {
+  display: inline;
+  margin: 0 0 -1px 0.8ch;
+  height: 1em;
+}
+
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre,
+details {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+ul,ol {
+  padding-left: 16px;
+}
+
+@media screen and (min-width: 678px) {
+  ul,ol {
+    padding-left: 24px;
+  }
+}
+
+dl {
+  border: 1px solid black;
+  padding: 4px;
+}
+
+dt {font-weight: bold;}
+
+dd {}
 
 .toast {
   border-radius: 8px;
