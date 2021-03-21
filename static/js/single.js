@@ -10,7 +10,7 @@ const displayToast = async (content) => {
   /* Display the toast for 3 seconds */
   toast.textContent = content
   toast.classList.add('show')
-  toast.timeout = setTimeout(clearToast, 3000)
+  toast.timeout = setTimeout(clearToast, 5000)
 }
 /* Clear the current toast being displayed */
 const clearToast = async () => {
@@ -26,17 +26,26 @@ const createAnchorLinks = async () => {
     let fragment = document.createElement('img')
     fragment.classList.add('fragment')
     /*
-    fragment.height = 24
-    fragment.width = 24
+     fragment.height = 24
+     fragment.width = 24
      */
     fragment.src = '/img/link.svg'
     fragment.addEventListener('click', async () => {
       window.location.hash = `#${heading.id}`
       if (window.isSecureContext) {
         try {
-          await navigator.clipboard.writeText(`${heading.baseURI}#${heading.id}`)
+          await navigator.clipboard.writeText(`${heading.baseURI}`)
           await displayToast('Copied to clipboard')
-        } catch (error) {
+        }
+        catch (error) {
+          alert(error)
+        }
+      }
+      else {
+        try {
+          await displayToast('Error - insecure context')
+        }
+        catch (error) {
           alert(error)
         }
       }
@@ -52,13 +61,13 @@ const createAnchorLinks = async () => {
      reduce the transparency of the link icon
      */
     heading.addEventListener('mouseover', () => {
-      fragment.style['opacity'] = '50%'
+      fragment.style['opacity'] = '60%'
     })
     /* When the user is not hovering over the header
      of any particular section, make the link icon transparent.
      */
     heading.addEventListener('mouseout', () => {
-      fragment.style['opacity'] = '20%'
+      fragment.style['opacity'] = '40%'
     })
   })
 }
@@ -79,7 +88,8 @@ const createSnippetLinks = async () => {
           console.log(snippet.textContent)
           await navigator.clipboard.writeText(snippet.textContent)
           await displayToast('Copied to clipboard')
-        } catch (error) {
+        }
+        catch (error) {
           alert(error)
         }
       }
@@ -95,13 +105,13 @@ const createSnippetLinks = async () => {
      reduce the transparency of the link icon
      */
     snippet.addEventListener('mouseover', () => {
-      img.style['opacity'] = '50%'
+      img.style['opacity'] = '60%'
     })
     /* When the user is not hovering over the header
      of any particular section, make the link icon transparent.
      */
     snippet.addEventListener('mouseout', () => {
-      img.style['opacity'] = '20%'
+      img.style['opacity'] = '40%'
     })
   }
 }
@@ -114,11 +124,11 @@ const markExternalLinks = () => {
     if (anchor.hostname === /localhost|127\.0\.0\.1/) {
       continue
     }
-    if (anchor.hostname !== window.location.hostname) {
-        console.log(anchor)
+    if (anchor.hostname === window.location.hostname) {
+      continue
     }
     let link = document.createElement('img')
-    link.src = "/img/external-link.svg"
+    link.src = '/img/external-link.svg'
     link.classList.add('link')
     anchor.appendChild(link)
   }
