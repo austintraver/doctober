@@ -27,3 +27,7 @@ simply add the following code snippet to your Hugo project's `config.toml`
     path = "github.com/austintraver/doctober"
     ignoreConfig = false
 ```
+
+## Example
+
+<img width="930" alt="example" src="https://user-images.githubusercontent.com/25112463/111905052-03515c80-8a07-11eb-8552-5e964bf4a3c1.png">
